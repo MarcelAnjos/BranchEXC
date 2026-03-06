@@ -12,9 +12,14 @@ def produto_escalar ( v1 , v2 ) :
     validar_vetores ( v1 , v2 )
     return sum( a * b for a , b in zip ( v1 , v2 ) )
 
+def mae ( v1 , v2 ) :
+    validar_vetores ( v1 , v2 )
+    return sum( abs( a - b ) for a , b in zip ( v1 , v2 ) ) / len ( v1 )
+def mse ( v1 , v2 ) :
+    validar_vetores ( v1 , v2 )
+    return sum (( a - b ) ** 2 for a , b in zip ( v1 , v2 ) ) / len ( v1 )
 
 if __name__ == "__main__":
     obs = [1.2, 2.5, 3.8]
-    pred = [1.0, 2.7, 4.0]   
-    validar_vetores(obs,pred)
-    print(euclidiana(obs,pred))
+    pred = [1.0, 2.7, 4.0]
+    print(mae(obs,pred))
